@@ -1,0 +1,16 @@
+name: CI
+
+on: [push]                          # триггер: любой push
+
+jobs:
+  run-python:
+    runs-on: ubuntu-latest          # чистая Ubuntu-машина (runner)
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4    # склонировать репо на runner
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5  # поставить uv (готовый action)
+
+      - name: Run main.py
+        run: uv run main.py          # запустить твой скрипт
