@@ -11,4 +11,4 @@ RUN uv sync --frozen --no-dev
 # теперь сам код
 COPY . .
 
-CMD ["uv", "run", "main.py"]
+CMD ["uv", "run", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
